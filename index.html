@@ -171,6 +171,19 @@
     .tags { display: flex; flex-wrap: wrap; gap: 6px; }
     .tag { font-size: 12px; padding: 3px 9px; border-radius: 999px; background: var(--surface-2); color: var(--muted); }
 
+    .subhead { font-size: 20px; letter-spacing: -.01em; margin: 40px 0 16px; }
+    .subhead.first { margin-top: 0; }
+    .soft-skills { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .soft {
+      display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start;
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px;
+    }
+    .soft .icon {
+      width: 40px; height: 40px; border-radius: 10px; display: grid; place-items: center;
+      background: color-mix(in srgb, var(--accent-2) 14%, transparent); color: var(--accent-2);
+    }
+    .soft h4 { margin: 0 0 4px; font-size: 16px; }
+    .soft p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.5; }
     .project {
       display: grid; grid-template-columns: 1fr 1fr; gap: 0;
       background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
@@ -230,11 +243,13 @@
 
     @media (max-width: 1100px) and (min-width: 901px) {
       .skills { grid-template-columns: repeat(3, 1fr); }
+      .soft-skills { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 900px) {
       .hero, .project, .about { grid-template-columns: 1fr; }
       .hero { padding: 56px 0 40px; gap: 40px; }
       .skills { grid-template-columns: repeat(2, 1fr); }
+      .soft-skills { grid-template-columns: repeat(2, 1fr); }
       .dash-grid { grid-template-columns: 1fr; }
       .about .approach { grid-template-columns: 1fr; }
     }
@@ -242,6 +257,7 @@
       .wrap { padding: 0 16px; }
       .nav-links a:not(.keep) { display: none; }
       .skills { grid-template-columns: 1fr; }
+      .soft-skills { grid-template-columns: 1fr; }
       .project-body, .project-visual { padding: 24px; }
       .bar-row { grid-template-columns: 96px 1fr 40px; }
       section { padding: 56px 0; }
@@ -332,8 +348,9 @@
         <div class="section-head">
           <span class="label">Toolkit</span>
           <h2>What I work with</h2>
-          <p>The tools I use to get data, analyse it and present it to the people who make decisions.</p>
+          <p>The tools I use to get data, analyse it and present it, and the skills that make the results useful to the people who make decisions.</p>
         </div>
+        <h3 class="subhead first">Technical skills</h3>
         <div class="skills">
           <article class="skill">
             <div class="icon" aria-hidden="true">
@@ -374,6 +391,25 @@
             <h3>Tableau</h3>
             <p>Visual storytelling and dashboards that make the key insight obvious at a glance.</p>
             <div class="tags"><span class="tag">Calculated fields</span><span class="tag">LOD</span><span class="tag">Storytelling</span></div>
+          </article>
+        </div>
+        <h3 class="subhead">Soft skills</h3>
+        <div class="soft-skills">
+          <article class="soft">
+            <div class="icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+            <div><h4>Stakeholder Communication</h4><p>Translating analysis into clear answers for finance, business and technical audiences.</p></div>
+          </article>
+          <article class="soft">
+            <div class="icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
+            <div><h4>Critical Thinking</h4><p>Questioning assumptions and testing whether a pattern is real before acting on it.</p></div>
+          </article>
+          <article class="soft">
+            <div class="icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg></div>
+            <div><h4>Problem-Solving</h4><p>Breaking messy business questions into steps the data can actually answer.</p></div>
+          </article>
+          <article class="soft">
+            <div class="icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h7a3 3 0 0 1 3 3v14a2 2 0 0 0-2-2H2zM22 4h-7a3 3 0 0 0-3 3v14a2 2 0 0 1 2-2h8z"/></svg></div>
+            <div><h4>Storytelling</h4><p>Building a narrative around the numbers so the key insight lands and leads to action.</p></div>
           </article>
         </div>
       </div>
