@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Jude Ezugwu | Finance &amp; Data Analytics</title>
-  <meta name="description" content="Jude Ezugwu: finance and data professional using SQL, Python, Excel, Power BI and Tableau to solve business problems.">
-  <meta property="og:title" content="Jude Ezugwu | Finance &amp; Data Analytics">
+  <title>Ibuchukwu Jude Ezugwu | Finance &amp; Data Analytics</title>
+  <meta name="description" content="Ibuchukwu Jude Ezugwu: finance and data professional using SQL, Python, Excel, Power BI and Tableau to solve business problems.">
+  <meta property="og:title" content="Ibuchukwu Jude Ezugwu | Finance &amp; Data Analytics">
   <meta property="og:description" content="Finance and data professional using SQL, Python, Excel, Power BI and Tableau to solve business problems.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://jiezugwu.github.io/Data-and-Finance-Projects/">
@@ -120,6 +120,14 @@
     .btn.primary:hover { filter: brightness(1.08); }
 
     .hero > *, .project > *, .about > * { min-width: 0; }
+    .who { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+    .who img { width: 72px; height: 72px; border-radius: 50%; object-fit: cover; border: 2px solid var(--border); }
+    .who b { display: block; font-size: 17px; }
+    .who span { color: var(--muted); font-size: 14px; }
+    .portrait {
+      display: block; width: 100%; max-width: 300px; height: auto; aspect-ratio: 4 / 5; object-fit: cover;
+      border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow);
+    }
     .hero-card {
       background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
       box-shadow: var(--shadow); padding: 22px;
@@ -197,7 +205,8 @@
     .dashboard figcaption .tag { margin-right: 6px; }
     .dash-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
     .dash-grid > * { min-width: 0; }
-    .about { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+    .about { display: grid; grid-template-columns: 300px 1fr; gap: 56px; align-items: start; }
+    .about .approach { grid-template-columns: 1fr 1fr; margin-top: 8px; }
     .about p { color: var(--muted); margin: 0 0 16px; }
     .approach { display: grid; gap: 12px; }
     .step { display: grid; grid-template-columns: 36px 1fr; gap: 14px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px; }
@@ -222,6 +231,7 @@
       .hero { padding: 56px 0 40px; gap: 40px; }
       .skills { grid-template-columns: repeat(2, 1fr); }
       .dash-grid { grid-template-columns: 1fr; }
+      .about .approach { grid-template-columns: 1fr; }
     }
     @media (max-width: 600px) {
       .wrap { padding: 0 16px; }
@@ -237,7 +247,7 @@
   <header>
     <div class="wrap">
       <nav>
-        <a class="brand" href="#top">Jude Ezugwu<span>.</span></a>
+        <a class="brand" href="#top">Ibuchukwu Jude Ezugwu<span>.</span></a>
         <div class="nav-links">
           <a href="#skills">Skills</a>
           <a href="#projects">Projects</a>
@@ -252,11 +262,16 @@
   <main id="top">
     <div class="wrap hero">
       <div>
+        <div class="who">
+          <img src="assets/jude-avatar.jpg" width="72" height="72" alt="Portrait of Ibuchukwu Jude Ezugwu">
+          <div><b>Ibuchukwu Jude Ezugwu</b><span>Finance &amp; Data Analyst</span></div>
+        </div>
         <span class="eyebrow">Open to data &amp; finance analytics roles</span>
         <h1>I turn messy data into <em>decisions</em> people can trust.</h1>
-        <p class="lede">I'm Jude Ezugwu, a finance and data professional with 3 years of experience. I use SQL, Python and Excel to solve business problems, and Power BI and Tableau to share the answers in a form people can act on.</p>
+        <p class="lede">I'm a finance and data professional with 3 years of experience. I use SQL, Python and Excel to solve business problems, and Power BI and Tableau to share the answers in a form people can act on.</p>
         <div class="cta">
           <a class="btn primary" href="#projects">View projects →</a>
+          <a class="btn" href="https://www.linkedin.com/in/jude-ezugwu" target="_blank" rel="noopener">LinkedIn</a>
           <a class="btn" href="#contact">Get in touch</a>
         </div>
       </div>
@@ -382,7 +397,6 @@
             <div class="cta">
               <a class="btn primary" href="Customer_Churn_Case_Study.pdf">Read the case study</a>
               <a class="btn" href="#dashboard">See the dashboard</a>
-              <a class="btn" href="https://github.com/jiezugwu/Data-and-Finance-Projects#readme">Project notes</a>
             </div>
           </div>
           <div class="project-visual" aria-label="Model performance against targets">
@@ -416,6 +430,8 @@
 
     <section id="about">
       <div class="wrap about">
+        <img class="portrait" src="assets/jude-portrait.jpg" width="640" height="800" loading="lazy" alt="Ibuchukwu Jude Ezugwu in a dark suit and tie">
+        <div>
         <div>
           <div class="section-head">
             <span class="label">About</span>
@@ -424,11 +440,12 @@
           <p>I'm a finance and data professional with 3 years of experience across finance and data analytics. I use SQL, Python and Excel to solve business problems, from framing the right question and getting the data into shape to presenting results so decision-makers can act on them.</p>
           <p>I care about being honest with data: checking whether a pattern is real before anyone builds a strategy on it.</p>
         </div>
-        <div class="approach">
+          <div class="approach">
           <div class="step"><div class="n">1</div><div><b>Frame the decision</b><span>Start from the business question and what success looks like.</span></div></div>
           <div class="step"><div class="n">2</div><div><b>Prepare the data</b><span>Query, clean and validate with SQL, Python and Excel.</span></div></div>
           <div class="step"><div class="n">3</div><div><b>Analyse honestly</b><span>Test findings against chance before trusting them.</span></div></div>
           <div class="step"><div class="n">4</div><div><b>Tell the story</b><span>Dashboards in Power BI and Tableau that lead to action.</span></div></div>
+        </div>
         </div>
       </div>
     </section>
@@ -450,7 +467,7 @@
   </main>
 
   <footer>
-    <div class="wrap">© <span id="year"></span> Jude Ezugwu</div>
+    <div class="wrap">© <span id="year"></span> Ibuchukwu Jude Ezugwu</div>
   </footer>
 
   <script>
