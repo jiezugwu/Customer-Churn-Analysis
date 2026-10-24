@@ -182,6 +182,21 @@
     .verdict b { color: var(--text); }
 
 
+    .dashboard { margin-top: 40px; scroll-margin-top: 80px; }
+    .dashboard h3 { font-size: 22px; letter-spacing: -.01em; margin: 0 0 6px; }
+    .dashboard > p { color: var(--muted); margin: 0 0 20px; }
+    .dashboard figure {
+      margin: 0; background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 14px; box-shadow: var(--shadow);
+    }
+    .dashboard img {
+      display: block; width: 100%; height: auto; border-radius: 8px;
+      background: #fff; padding: 8px; /* charts have white backgrounds; keep them framed in dark mode */
+    }
+    .dashboard figcaption { color: var(--muted); font-size: 14px; margin-top: 12px; }
+    .dashboard figcaption .tag { margin-right: 6px; }
+    .dash-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
+    .dash-grid > * { min-width: 0; }
     .about { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
     .about p { color: var(--muted); margin: 0 0 16px; }
     .approach { display: grid; gap: 12px; }
@@ -206,6 +221,7 @@
       .hero, .project, .about { grid-template-columns: 1fr; }
       .hero { padding: 56px 0 40px; gap: 40px; }
       .skills { grid-template-columns: repeat(2, 1fr); }
+      .dash-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 600px) {
       .wrap { padding: 0 16px; }
@@ -236,9 +252,9 @@
   <main id="top">
     <div class="wrap hero">
       <div>
-        <span class="eyebrow">Finance &amp; data analytics</span>
+        <span class="eyebrow">Open to data &amp; finance analytics roles</span>
         <h1>I turn messy data into <em>decisions</em> people can trust.</h1>
-        <p class="lede">I'm Jude Ezugwu, a finance and data professional. I use SQL, Python and Excel to solve business problems, and Power BI and Tableau to share the answers in a form people can act on.</p>
+        <p class="lede">I'm Jude Ezugwu, a finance and data professional with 3 years of experience. I use SQL, Python and Excel to solve business problems, and Power BI and Tableau to share the answers in a form people can act on.</p>
         <div class="cta">
           <a class="btn primary" href="#projects">View projects →</a>
           <a class="btn" href="#contact">Get in touch</a>
@@ -353,17 +369,19 @@
 
         <article class="project">
           <div class="project-body">
-            <span class="tag">Python · Statistics · Dashboard</span>
+            <span class="tag">SQL · Python · Tableau</span>
             <h3>Can customer data predict churn?</h3>
             <p>A retention team wanted to target offers using the customer details they already held. I tested whether those details could actually identify who was likely to leave.</p>
             <ul>
-              <li><strong>Validated</strong> 2,000 customer records — complete, no duplicates.</li>
+              <li><strong>Validated</strong> 2,000 customer records in MySQL — complete, no duplicates.</li>
               <li><strong>Compared</strong> churn across 31 segments, with uncertainty ranges.</li>
-              <li><strong>Built</strong> a logistic-regression model against pre-set success criteria and a 30-run noise benchmark.</li>
+              <li><strong>Built</strong> a logistic-regression model in Python (pandas, scikit-learn) against pre-set success criteria and a 30-run noise benchmark.</li>
+              <li><strong>Visualised</strong> the results in a Tableau dashboard designed so stakeholders can't mistake noise for a pattern.</li>
               <li><strong>Recommended</strong> a randomised retention-offer pilot instead of a model that would only be guessing.</li>
             </ul>
             <div class="cta">
               <a class="btn primary" href="Customer_Churn_Case_Study.pdf">Read the case study</a>
+              <a class="btn" href="#dashboard">See the dashboard</a>
               <a class="btn" href="https://github.com/jiezugwu/Data-and-Finance-Projects#readme">Project notes</a>
             </div>
           </div>
@@ -374,7 +392,26 @@
             <div class="verdict"><b>Finding:</b> none of the seven customer details reliably predict churn, so the right move was to test offers directly, not to target on noise.</div>
           </div>
         </article>
-            </div>
+
+        <div class="dashboard" id="dashboard">
+          <h3>Project dashboard</h3>
+          <p>Charts from the churn analysis. Select any chart to open it full size.</p>
+          <figure>
+            <a href="assets/churn-by-segment.png" target="_blank" rel="noopener"><img src="assets/churn-by-segment.png" width="1423" height="757" loading="lazy" alt="Tableau bar chart of churn rate for 31 customer segments across age, income, discount usage, gender, membership years, online purchases and spending score. Every bar sits near the 31% overall rate and every 95% interval crosses it."></a>
+            <figcaption><span class="tag">Tableau</span> Churn rate by segment. Every segment sits close to the 31% overall rate, and every interval crosses it.</figcaption>
+          </figure>
+          <div class="dash-grid">
+            <figure>
+              <a href="assets/segment-gap-intervals.png" target="_blank" rel="noopener"><img src="assets/segment-gap-intervals.png" width="1434" height="760" loading="lazy" alt="Tableau interval chart of each segment's churn gap versus all other customers, in percentage points, with Bonferroni-adjusted intervals. Every interval crosses zero."></a>
+              <figcaption><span class="tag">Tableau</span> Each segment against everyone else, with intervals corrected for 31 comparisons. Every interval crosses zero.</figcaption>
+            </figure>
+            <figure>
+              <a href="assets/model-auc-vs-shuffled.png" target="_blank" rel="noopener"><img src="assets/model-auc-vs-shuffled.png" width="1720" height="680" loading="lazy" alt="Dot plot of model AUC: the real model scores 0.496 cross-validated and 0.487 on the test set, inside the spread of 30 label-shuffled runs and well below the pre-set 0.55 target."></a>
+              <figcaption><span class="tag">Python</span> The real model (0.496) against 30 runs on shuffled labels. It sits inside the noise, below the 0.55 target.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section id="about">
@@ -384,7 +421,7 @@
             <span class="label">About</span>
             <h2>Rigorous analysis, clearly communicated</h2>
           </div>
-          <p>I'm a finance and data professional with years of experience across finance and data analytics. I use SQL, Python and Excel to solve business problems, from framing the right question and getting the data into shape to presenting results so decision-makers can act on them.</p>
+          <p>I'm a finance and data professional with 3 years of experience across finance and data analytics. I use SQL, Python and Excel to solve business problems, from framing the right question and getting the data into shape to presenting results so decision-makers can act on them.</p>
           <p>I care about being honest with data: checking whether a pattern is real before anyone builds a strategy on it.</p>
         </div>
         <div class="approach">
