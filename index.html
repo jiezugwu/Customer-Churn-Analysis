@@ -3,8 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Data Portfolio</title>
-  <meta name="description" content="Portfolio of a data professional working in SQL, Python, Power BI and Tableau.">
+  <title>Jude Ezugwu | Finance &amp; Data Analytics</title>
+  <meta name="description" content="Jude Ezugwu: finance and data professional using SQL, Python, Excel, Power BI and Tableau to solve business problems.">
+  <meta property="og:title" content="Jude Ezugwu | Finance &amp; Data Analytics">
+  <meta property="og:description" content="Finance and data professional using SQL, Python, Excel, Power BI and Tableau to solve business problems.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jiezugwu.github.io/Data-and-Finance-Projects/">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232f6fed'/%3E%3Ctext x='16' y='21.5' font-family='Arial' font-weight='700' font-size='14' fill='white' text-anchor='middle'%3EJE%3C/text%3E%3C/svg%3E">
+  <script>
+    try { const t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -56,6 +64,8 @@
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+    section { scroll-margin-top: 64px; }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
     body {
       margin: 0;
       background: var(--bg);
@@ -83,7 +93,8 @@
     .nav-links a:hover { color: var(--text); text-decoration: none; }
     .theme-btn {
       border: 1px solid var(--border); background: var(--surface); color: var(--text);
-      width: 36px; height: 36px; border-radius: 10px; cursor: pointer; font-size: 16px;
+      width: 36px; height: 36px; border-radius: 10px; cursor: pointer;
+      display: grid; place-items: center; padding: 0;
     }
 
     /* Hero */
@@ -132,7 +143,7 @@
     h2 { font-size: clamp(28px, 3.4vw, 36px); letter-spacing: -.02em; line-height: 1.15; margin: 8px 0 10px; }
     .section-head p { color: var(--muted); margin: 0; }
 
-    .skills { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .skills { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
     .skill {
       background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
       padding: 22px; transition: transform .15s ease, border-color .15s ease;
@@ -170,13 +181,22 @@
     }
     .verdict b { color: var(--text); }
 
-    .more { margin-top: 16px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .placeholder {
-      border: 1px dashed var(--border); border-radius: var(--radius); padding: 22px;
-      color: var(--muted); font-size: 14.5px;
-    }
-    .placeholder b { display: block; color: var(--text); margin-bottom: 4px; }
 
+    .dashboard { margin-top: 40px; scroll-margin-top: 80px; }
+    .dashboard h3 { font-size: 22px; letter-spacing: -.01em; margin: 0 0 6px; }
+    .dashboard > p { color: var(--muted); margin: 0 0 20px; }
+    .dashboard figure {
+      margin: 0; background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 14px; box-shadow: var(--shadow);
+    }
+    .dashboard img {
+      display: block; width: 100%; height: auto; border-radius: 8px;
+      background: #fff; padding: 8px; /* charts have white backgrounds; keep them framed in dark mode */
+    }
+    .dashboard figcaption { color: var(--muted); font-size: 14px; margin-top: 12px; }
+    .dashboard figcaption .tag { margin-right: 6px; }
+    .dash-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
+    .dash-grid > * { min-width: 0; }
     .about { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
     .about p { color: var(--muted); margin: 0 0 16px; }
     .approach { display: grid; gap: 12px; }
@@ -194,11 +214,14 @@
 
     footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; text-align: center; }
 
+    @media (max-width: 1100px) and (min-width: 901px) {
+      .skills { grid-template-columns: repeat(3, 1fr); }
+    }
     @media (max-width: 900px) {
       .hero, .project, .about { grid-template-columns: 1fr; }
       .hero { padding: 56px 0 40px; gap: 40px; }
       .skills { grid-template-columns: repeat(2, 1fr); }
-      .more { grid-template-columns: 1fr; }
+      .dash-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 600px) {
       .wrap { padding: 0 16px; }
@@ -214,13 +237,13 @@
   <header>
     <div class="wrap">
       <nav>
-        <a class="brand" href="#top">Your Name<span>.</span></a>
+        <a class="brand" href="#top">Jude Ezugwu<span>.</span></a>
         <div class="nav-links">
           <a href="#skills">Skills</a>
           <a href="#projects">Projects</a>
           <a href="#about">About</a>
           <a class="keep" href="#contact">Contact</a>
-          <button class="theme-btn" id="themeBtn" aria-label="Toggle colour theme">◐</button>
+          <button class="theme-btn" id="themeBtn" aria-label="Toggle dark mode"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
         </div>
       </nav>
     </div>
@@ -229,9 +252,9 @@
   <main id="top">
     <div class="wrap hero">
       <div>
-        <span class="eyebrow">Open to data &amp; analytics roles</span>
+        <span class="eyebrow">Open to data &amp; finance analytics roles</span>
         <h1>I turn messy data into <em>decisions</em> people can trust.</h1>
-        <p class="lede">Data professional working across SQL, Python, Power BI and Tableau — from cleaning and modelling raw data to building dashboards that answer the question the business is actually asking.</p>
+        <p class="lede">I'm Jude Ezugwu, a finance and data professional with 3 years of experience. I use SQL, Python and Excel to solve business problems, and Power BI and Tableau to share the answers in a form people can act on.</p>
         <div class="cta">
           <a class="btn primary" href="#projects">View projects →</a>
           <a class="btn" href="#contact">Get in touch</a>
@@ -244,32 +267,35 @@
           <div class="kpi"><b>31</b><small>segments tested</small></div>
           <div class="kpi"><b>0.496</b><small>model AUC</small></div>
         </div>
-        <p class="chart-title">Monthly revenue vs. target</p>
+        <p class="chart-title">Churn rate by age band (customer churn project data)</p>
         <div class="chart">
-          <svg viewBox="0 0 360 140" role="img" aria-label="Line chart of revenue trending above target">
+          <svg viewBox="0 0 360 150" role="img" aria-label="Bar chart: churn rate by age band is between 28% and 33% for every band, close to the 31% overall rate">
             <g stroke="var(--border)" stroke-width="1">
-              <line x1="0" y1="20" x2="360" y2="20"/>
-              <line x1="0" y1="60" x2="360" y2="60"/>
-              <line x1="0" y1="100" x2="360" y2="100"/>
+              <line x1="0" y1="125" x2="360" y2="125"/>
             </g>
-            <g fill="var(--accent-soft)">
-              <rect x="10"  y="86" width="20" height="44" rx="3"/>
-              <rect x="40"  y="80" width="20" height="50" rx="3"/>
-              <rect x="70"  y="90" width="20" height="40" rx="3"/>
-              <rect x="100" y="72" width="20" height="58" rx="3"/>
-              <rect x="130" y="66" width="20" height="64" rx="3"/>
-              <rect x="160" y="70" width="20" height="60" rx="3"/>
-              <rect x="190" y="56" width="20" height="74" rx="3"/>
-              <rect x="220" y="48" width="20" height="82" rx="3"/>
-              <rect x="250" y="52" width="20" height="78" rx="3"/>
-              <rect x="280" y="38" width="20" height="92" rx="3"/>
-              <rect x="310" y="30" width="20" height="100" rx="3"/>
+            <g fill="var(--accent)">
+              <rect x="22"  y="47.2" width="44" height="77.8" rx="3"/>
+              <rect x="92"  y="34.1" width="44" height="90.9" rx="3"/>
+              <rect x="162" y="39.9" width="44" height="85.1" rx="3"/>
+              <rect x="232" y="38.6" width="44" height="86.4" rx="3"/>
+              <rect x="302" y="36.4" width="44" height="88.6" rx="3"/>
             </g>
-            <polyline fill="none" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="4 4"
-              points="20,92 50,88 80,84 110,80 140,76 170,72 200,68 230,64 260,60 290,56 320,52"/>
-            <polyline fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"
-              points="20,86 50,80 80,90 110,72 140,66 170,70 200,56 230,48 260,52 290,38 320,30"/>
-            <circle cx="320" cy="30" r="4.5" fill="var(--accent)"/>
+            <line x1="10" y1="39.6" x2="356" y2="39.6" stroke="var(--text)" stroke-width="1.25" stroke-dasharray="4 4"/>
+            <text x="356" y="12" text-anchor="end" font-size="10.5" fill="var(--muted)">dashed line = 31% overall</text>
+            <g font-size="10.5" fill="var(--surface)" text-anchor="middle" font-weight="600">
+              <text x="44"  y="62">28%</text>
+              <text x="114" y="56">33%</text>
+              <text x="184" y="56">31%</text>
+              <text x="254" y="56">31%</text>
+              <text x="324" y="56">32%</text>
+            </g>
+            <g font-size="10.5" fill="var(--muted)" text-anchor="middle">
+              <text x="44"  y="142">18–29</text>
+              <text x="114" y="142">30–39</text>
+              <text x="184" y="142">40–49</text>
+              <text x="254" y="142">50–59</text>
+              <text x="324" y="142">60–69</text>
+            </g>
           </svg>
         </div>
         <pre class="sql mono"><span class="k">SELECT</span> segment,
@@ -286,7 +312,7 @@
         <div class="section-head">
           <span class="label">Toolkit</span>
           <h2>What I work with</h2>
-          <p>The end-to-end stack: query it, analyse it, and present it in a way stakeholders can act on.</p>
+          <p>The tools I use to get data, analyse it and present it to the people who make decisions.</p>
         </div>
         <div class="skills">
           <article class="skill">
@@ -296,6 +322,14 @@
             <h3>SQL</h3>
             <p>Writing clean, performant queries to extract, join and aggregate data at scale.</p>
             <div class="tags"><span class="tag">CTEs</span><span class="tag">Window functions</span><span class="tag">Data modelling</span></div>
+          </article>
+          <article class="skill">
+            <div class="icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18"/></svg>
+            </div>
+            <h3>Excel</h3>
+            <p>Financial models, reconciliations and analysis that finance teams can audit and reuse.</p>
+            <div class="tags"><span class="tag">Financial modelling</span><span class="tag">Pivot tables</span><span class="tag">Power Query</span></div>
           </article>
           <article class="skill">
             <div class="icon" aria-hidden="true">
@@ -330,23 +364,25 @@
         <div class="section-head">
           <span class="label">Selected work</span>
           <h2>Featured projects</h2>
-          <p>Real analyses, end to end, with the question, the method and the answer.</p>
+          <p>Complete analyses, from the business question to the method and the answer.</p>
         </div>
 
         <article class="project">
           <div class="project-body">
-            <span class="tag">Python · Statistics · Dashboard</span>
+            <span class="tag">SQL · Python · Tableau</span>
             <h3>Can customer data predict churn?</h3>
             <p>A retention team wanted to target offers using the customer details they already held. I tested whether those details could actually identify who was likely to leave.</p>
             <ul>
-              <li><strong>Validated</strong> 2,000 customer records — complete, no duplicates.</li>
+              <li><strong>Validated</strong> 2,000 customer records in MySQL — complete, no duplicates.</li>
               <li><strong>Compared</strong> churn across 31 segments, with uncertainty ranges.</li>
-              <li><strong>Built</strong> a logistic-regression model against pre-set success criteria and a 30-run noise benchmark.</li>
+              <li><strong>Built</strong> a logistic-regression model in Python (pandas, scikit-learn) against pre-set success criteria and a 30-run noise benchmark.</li>
+              <li><strong>Visualised</strong> the results in a Tableau dashboard designed so stakeholders can't mistake noise for a pattern.</li>
               <li><strong>Recommended</strong> a randomised retention-offer pilot instead of a model that would only be guessing.</li>
             </ul>
             <div class="cta">
               <a class="btn primary" href="Customer_Churn_Case_Study.pdf">Read the case study</a>
-              <a class="btn" href="README.md">Project notes</a>
+              <a class="btn" href="#dashboard">See the dashboard</a>
+              <a class="btn" href="https://github.com/jiezugwu/Data-and-Finance-Projects#readme">Project notes</a>
             </div>
           </div>
           <div class="project-visual" aria-label="Model performance against targets">
@@ -357,10 +393,23 @@
           </div>
         </article>
 
-        <div class="more">
-          <div class="placeholder"><b>Sales performance dashboard</b>Power BI · coming soon</div>
-          <div class="placeholder"><b>Financial KPI tracker</b>Tableau · coming soon</div>
-          <div class="placeholder"><b>SQL analytics deep-dive</b>SQL · coming soon</div>
+        <div class="dashboard" id="dashboard">
+          <h3>Project dashboard</h3>
+          <p>Charts from the churn analysis. Select any chart to open it full size.</p>
+          <figure>
+            <a href="assets/churn-by-segment.png" target="_blank" rel="noopener"><img src="assets/churn-by-segment.png" width="1423" height="757" loading="lazy" alt="Tableau bar chart of churn rate for 31 customer segments across age, income, discount usage, gender, membership years, online purchases and spending score. Every bar sits near the 31% overall rate and every 95% interval crosses it."></a>
+            <figcaption><span class="tag">Tableau</span> Churn rate by segment. Every segment sits close to the 31% overall rate, and every interval crosses it.</figcaption>
+          </figure>
+          <div class="dash-grid">
+            <figure>
+              <a href="assets/segment-gap-intervals.png" target="_blank" rel="noopener"><img src="assets/segment-gap-intervals.png" width="1434" height="760" loading="lazy" alt="Tableau interval chart of each segment's churn gap versus all other customers, in percentage points, with Bonferroni-adjusted intervals. Every interval crosses zero."></a>
+              <figcaption><span class="tag">Tableau</span> Each segment against everyone else, with intervals corrected for 31 comparisons. Every interval crosses zero.</figcaption>
+            </figure>
+            <figure>
+              <a href="assets/model-auc-vs-shuffled.png" target="_blank" rel="noopener"><img src="assets/model-auc-vs-shuffled.png" width="1720" height="680" loading="lazy" alt="Dot plot of model AUC: the real model scores 0.496 cross-validated and 0.487 on the test set, inside the spread of 30 label-shuffled runs and well below the pre-set 0.55 target."></a>
+              <figcaption><span class="tag">Python</span> The real model (0.496) against 30 runs on shuffled labels. It sits inside the noise, below the 0.55 target.</figcaption>
+            </figure>
+          </div>
         </div>
       </div>
     </section>
@@ -372,12 +421,12 @@
             <span class="label">About</span>
             <h2>Rigorous analysis, clearly communicated</h2>
           </div>
-          <p>I'm a data professional with a focus on data and finance. I enjoy the full lifecycle of an analysis — framing the right question, getting the data into shape, and presenting results so the people who need them can make a call.</p>
+          <p>I'm a finance and data professional with 3 years of experience across finance and data analytics. I use SQL, Python and Excel to solve business problems, from framing the right question and getting the data into shape to presenting results so decision-makers can act on them.</p>
           <p>I care about being honest with data: checking whether a pattern is real before anyone builds a strategy on it.</p>
         </div>
         <div class="approach">
           <div class="step"><div class="n">1</div><div><b>Frame the decision</b><span>Start from the business question and what success looks like.</span></div></div>
-          <div class="step"><div class="n">2</div><div><b>Prepare the data</b><span>Query, clean and validate with SQL and Python.</span></div></div>
+          <div class="step"><div class="n">2</div><div><b>Prepare the data</b><span>Query, clean and validate with SQL, Python and Excel.</span></div></div>
           <div class="step"><div class="n">3</div><div><b>Analyse honestly</b><span>Test findings against chance before trusting them.</span></div></div>
           <div class="step"><div class="n">4</div><div><b>Tell the story</b><span>Dashboards in Power BI and Tableau that lead to action.</span></div></div>
         </div>
@@ -388,11 +437,12 @@
       <div class="wrap">
         <div class="contact">
           <h2>Let's work together</h2>
-          <p>Have a data problem, a role, or a project in mind? I'd be glad to hear about it.</p>
+          <p>Have a role, a project or a data problem in mind? I'd be glad to hear about it.</p>
+          <p class="mono" style="margin-bottom:24px;font-size:14px">Ibuchukwuezugwu@gmail.com</p>
           <div class="cta">
-            <a class="btn primary" href="mailto:you@example.com">Email me</a>
-            <a class="btn" href="https://www.linkedin.com/">LinkedIn</a>
-            <a class="btn" href="https://github.com/jiezugwu">GitHub</a>
+            <a class="btn primary" href="mailto:Ibuchukwuezugwu@gmail.com">Email me</a>
+            <a class="btn" href="https://www.linkedin.com/in/jude-ezugwu" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="btn" href="https://github.com/jiezugwu" target="_blank" rel="noopener">GitHub</a>
           </div>
         </div>
       </div>
@@ -400,13 +450,12 @@
   </main>
 
   <footer>
-    <div class="wrap">© <span id="year"></span> Your Name · Built with HTML &amp; CSS</div>
+    <div class="wrap">© <span id="year"></span> Jude Ezugwu</div>
   </footer>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
     const root = document.documentElement;
-    try { const t = localStorage.getItem('theme'); if (t) root.dataset.theme = t; } catch (e) {}
     document.getElementById('themeBtn').addEventListener('click', () => {
       const dark = root.dataset.theme
         ? root.dataset.theme === 'dark'
