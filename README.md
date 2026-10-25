@@ -45,3 +45,5 @@ It improves decision quality and fairness.
 The project prevents targeting based on age or gender—attributes that show no signal and could raise ethical or legal concerns.
 
 The kaggle link to the dataset: https://www.kaggle.com/datasets/ihasan88/customer-behavior-and-churn-prediction-dataset
+
+Also for more information: You can check out the case study 
